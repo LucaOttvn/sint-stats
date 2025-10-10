@@ -1,16 +1,20 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import InputField from "../inputFields/InputField";
 import { commands } from "@/utils/commands";
 import { usePathname, useRouter } from "next/navigation";
 import CommandsHelper from "../commandsHelper/CommandsHelper";
-import './style.scss'
+import './style.scss';
 
 export default function CommandPrompt() {
   const router = useRouter();
   const pathName = usePathname();
   const ref = useRef<HTMLInputElement>(null);
   const [command, setCommand] = useState<string | undefined>(undefined);
+
+  useLayoutEffect(()=> {
+    ['/home/characters', '/home/legend'].forEach(el => router.prefetch(el))
+  }, [])
 
   const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return;
