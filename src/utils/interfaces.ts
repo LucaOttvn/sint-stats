@@ -4,3 +4,9 @@ export interface Command {
     callback?: () => void
     redirect?: string
 }
+
+export interface Stat {
+    name: string
+    description: string
+    value: number    
+}
