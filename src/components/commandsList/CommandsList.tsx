@@ -5,10 +5,11 @@ export default function CommandsList() {
   return (
     <section id="commandListContainer">
       <h2 className="w-full center">Commands</h2>
+      <span><b>Command helper: </b>?</span>
       {/* command line */}
       {commands.map((cmd, index) => (
         <div key={`cmd${index}`} className="commandContainer gap-3">
-          <h3>{`${cmd.description}:`}</h3>
+          <b>{`${cmd.description}:`}</b>
           {/* command name and aliases */}
           <div className="commandAliases gap-3">
             {cmd.names.map((name, index) => (

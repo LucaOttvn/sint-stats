@@ -15,6 +15,7 @@
 
   --black: #000000;
   --green: #00a674;
+  --darkGreen: #003e2c;
 }
 
 .center {
@@ -41,7 +42,7 @@ body {
   color: var(--green);
 }
 
-h1, h2, h3 {
+h1, h2 {
   font-weight: bold;
 }
 

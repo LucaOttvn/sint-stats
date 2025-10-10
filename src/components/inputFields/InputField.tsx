@@ -1,4 +1,4 @@
-import React, {ChangeEvent, Ref} from "react";
+import React, { Ref } from "react";
 import "./style.scss";
 
 interface InputFieldProps {
