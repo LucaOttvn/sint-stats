@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Lekton-Regular";
+  src: url("/fonts/Lekton-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --mainBoxShadow: var(--Black) 2px 2px 5px;
+  --bigBoxShadow: var(--Black) 0px 10px 30px;
+  --mainBorderRadius: 0px;
+  --bigBorderRadius: 30px;
+
+  --black: #000000;
+  --green: #00a674;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.start {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.end {
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lekton-Regular", sans-serif;
+  background-color: var(--black);
+  color: var(--green);
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 140%;
+}
+
+h2 {
+  font-size: 120%;
 }

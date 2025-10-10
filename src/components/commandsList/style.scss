@@ -1,0 +1,17 @@
+#commandListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border: solid 1px var(--green);
+    padding: 1rem;
+    gap: 1rem;
+    .commandContainer {
+        display: flex;
+        .commandAliases {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    }
+}
