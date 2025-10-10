@@ -1,9 +1,10 @@
 "use client";
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import InputField from "../inputFields/InputField";
-import {commands} from "@/utils/commands";
-import {usePathname, useRouter} from "next/navigation";
+import { commands } from "@/utils/commands";
+import { usePathname, useRouter } from "next/navigation";
 import CommandsHelper from "../commandsHelper/CommandsHelper";
+import './style.scss'
 
 export default function CommandPrompt() {
   const router = useRouter();
@@ -48,7 +49,7 @@ export default function CommandPrompt() {
   };
 
   return (
-    <div className="w-full center relative" style={{maxWidth: 700}}>
+    <div id="commandPromptContainer">
       {command === '?' && <CommandsHelper />}
       <InputField ref={ref} placeHolder="Insert command" onKeyDown={(e) => handleInput(e)} value={command} onChange={(e) => setCommand(e.target.value)} />
     </div>

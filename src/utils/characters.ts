@@ -2,7 +2,7 @@ import { Character } from "./interfaces";
 
 export const characters: Character[] = [
     {
-        name: 'Iro',
+        name: 'Cillian',
         stats: [
             {
                 statId: 1,
@@ -35,7 +35,7 @@ export const characters: Character[] = [
         ]
     },
     {
-        name: 'Cillian',
+        name: 'Iro',
         stats: [
             {
                 statId: 1,
