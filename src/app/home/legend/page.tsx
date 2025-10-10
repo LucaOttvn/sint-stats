@@ -1,8 +1,6 @@
 import React from 'react';
 
-interface LegendProps {}
-
-export default function Legend(props: LegendProps) {
+export default function Legend() {
   return (
     <div>
     </div>

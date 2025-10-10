@@ -4,9 +4,7 @@ import InputField from "../inputFields/InputField";
 import {commands} from "@/utils/commands";
 import {usePathname, useRouter} from "next/navigation";
 
-interface CommandPromptProps {}
-
-export default function CommandPrompt(props: CommandPromptProps) {
+export default function CommandPrompt() {
   const router = useRouter();
   const pathName = usePathname();
   const [command, setCommand] = useState<string | undefined>(undefined);

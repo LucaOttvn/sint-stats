@@ -1,6 +1,6 @@
 export interface Command {
     description: string
     names: string[]
-    callback?: () => any
+    callback?: () => void
     redirect?: string
 }

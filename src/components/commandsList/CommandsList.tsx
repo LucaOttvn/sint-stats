@@ -1,9 +1,7 @@
 import { commands } from "@/utils/commands";
 import "./style.scss";
 
-interface CommandsListProps {}
-
-export default function CommandsList(props: CommandsListProps) {
+export default function CommandsList() {
   return (
     <section id="commandListContainer">
       <h2 className="w-full center">Commands</h2>
