@@ -12,8 +12,12 @@ export default function CommandPrompt() {
 
   const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return;
-    e.preventDefault()
-    ref.current?.blur();       
+
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      e.preventDefault();
+      ref.current?.blur();
+    }
     const foundCommand = commands.find((cmd) => {
       // check if there's a command with the same name as the user's input
       const foundName = cmd.names.find((name) => name === command?.trim().toLowerCase());
@@ -28,11 +32,11 @@ export default function CommandPrompt() {
     if (foundCommand.redirect === "back") {
       if (pathName === "/home") return alert("Cannot go back");
       router.back();
-      setCommand(undefined)
-      return 
+      setCommand(undefined);
+      return;
     }
     router.push(foundCommand.redirect);
-    setCommand(undefined)
+    setCommand(undefined);
   };
 
   return (

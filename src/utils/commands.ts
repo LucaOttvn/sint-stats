@@ -7,6 +7,11 @@ export const commands: Command[] = [
         redirect: 'back'
     },
     {
+        description: 'Go to home',
+        names: ['go home', 'gh'],
+        redirect: '/home'
+    },
+    {
         description: 'Go to stats legend',
         names: ['go legend', 'gl'],
         redirect: '/home/legend'
