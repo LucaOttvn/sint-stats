@@ -5,16 +5,6 @@ import { stats } from "@/utils/stats";
 import Chartscii from "chartscii";
 
 export default function Stats() {
-  const data = [
-    {label: "Attack", value: 100},
-    {label: "Defence", value: 100},
-    {label: "Eloquence", value: 10},
-    {label: "Science", value: 5},
-    {label: "Barter", value: 5},
-    {label: "Medicine", value: 5},
-    {label: "Luck", value: 15},
-  ];
-
   const generateStatsChart = (character: Character) => {
     const characterStats = character.stats.map(stat => {
       const foundStat = stats.find(el => el.id === stat.statId)
