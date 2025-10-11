@@ -26,4 +26,9 @@ export const commands: Command[] = [
         names: ['go lore', 'glo'],
         redirect: '/home/lore'
     },
+    {
+        description: 'Go to station map',
+        names: ['go map', 'gm'],
+        redirect: '/home/map'
+    },
 ]
