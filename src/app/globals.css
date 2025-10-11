@@ -18,6 +18,10 @@
   --darkGreen: #003e2c;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .center {
   display: flex;
   justify-content: center;

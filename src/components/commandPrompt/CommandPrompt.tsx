@@ -13,7 +13,13 @@ export default function CommandPrompt() {
   const [command, setCommand] = useState<string | undefined>(undefined);
 
   useLayoutEffect(()=> {
-    ['/home/characters', '/home/legend'].forEach(el => router.prefetch(el))
+    // prefetch all the pages
+    const pages = commands.filter(cmd => cmd.redirect !== 'back' )
+    const pagesRoutes = pages.map(page => page.redirect)
+    for (const route of pagesRoutes) {
+      if (!route) continue
+      router.prefetch(route)
+    }
   }, [])
 
   const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {

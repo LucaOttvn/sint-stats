@@ -13,12 +13,17 @@ export const commands: Command[] = [
     },
     {
         description: 'Go to stats legend',
-        names: ['go legend', 'gl'],
+        names: ['go legend', 'gle'],
         redirect: '/home/legend'
     },
     {
         description: 'Go to characters stats',
         names: ['go stats', 'gs'],
         redirect: '/home/characters'
+    },
+    {
+        description: 'Go to lore',
+        names: ['go lore', 'glo'],
+        redirect: '/home/lore'
     },
 ]
