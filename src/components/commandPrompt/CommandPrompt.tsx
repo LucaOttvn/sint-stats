@@ -1,10 +1,10 @@
 "use client";
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, {useLayoutEffect, useRef, useState} from "react";
 import InputField from "../inputFields/InputField";
-import { commands } from "@/utils/commands";
-import { usePathname, useRouter } from "next/navigation";
+import {commands} from "@/utils/commands";
+import {usePathname, useRouter} from "next/navigation";
 import CommandsHelper from "../commandsHelper/CommandsHelper";
-import './style.scss';
+import "./style.scss";
 
 export default function CommandPrompt() {
   const router = useRouter();
@@ -12,16 +12,17 @@ export default function CommandPrompt() {
   const ref = useRef<HTMLInputElement>(null);
   const [command, setCommand] = useState<string | undefined>(undefined);
 
-  useLayoutEffect(()=> {
+  useLayoutEffect(() => {
     // prefetch all the pages
-    const pages = commands.filter(cmd => cmd.redirect !== 'back' )
-    const pagesRoutes = pages.map(page => page.redirect)
+    const pages = commands.filter((cmd) => cmd.redirect !== "back");
+    const pagesRoutes = pages.map((page) => page.redirect);
     for (const route of pagesRoutes) {
-      if (!route) continue
-      router.prefetch(route)
+      if (!route) continue;
+      router.prefetch(route);
     }
-  }, [])
+  }, []);
 
+  // on enter trigger the command
   const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter") return;
 
@@ -35,10 +36,7 @@ export default function CommandPrompt() {
       const foundName = cmd.names.find((name) => name === command?.trim().toLowerCase());
       return foundName;
     });
-    if (!foundCommand) {
-      alert("Command not found");
-      return;
-    }
+    if (!foundCommand) return alert("Command not found");
     if (foundCommand.callback) foundCommand.callback();
     if (!foundCommand.redirect) return;
 
@@ -60,7 +58,7 @@ export default function CommandPrompt() {
 
   return (
     <div id="commandPromptContainer">
-      {command === '?' && <CommandsHelper />}
+      {command === "?" && <CommandsHelper />}
       <InputField ref={ref} placeHolder="Insert command" onKeyDown={(e) => handleInput(e)} value={command} onChange={(e) => setCommand(e.target.value)} />
     </div>
   );
