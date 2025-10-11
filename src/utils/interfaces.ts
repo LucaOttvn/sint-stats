@@ -9,7 +9,6 @@ export interface Stat {
     id: number
     name: string
     description: string
-    value: number
 }
 
 export interface Character {
