@@ -1,14 +1,26 @@
-import React, { Ref } from "react";
+import React, {Ref} from "react";
 import "./style.scss";
 
 interface InputFieldProps {
   placeHolder?: string;
-  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value: string | undefined
-  ref: Ref<HTMLInputElement>
+  value: string | undefined;
+  ref?: Ref<HTMLInputElement>;
 }
 
 export default function InputField(props: InputFieldProps) {
-  return <input ref={props.ref} type="text" value={props.value || ''} className="mainInput" placeholder={props.placeHolder || ""} onKeyDown={(e) => props.onKeyDown(e)} onChange={(e) => props.onChange(e)} />;
+  return (
+    <input
+      ref={props.ref}
+      type="text"
+      value={props.value || ""}
+      className="mainInput"
+      placeholder={props.placeHolder || ""}
+      onKeyDown={(e) => {
+        props.onKeyDown ? props.onKeyDown(e) : null
+      }}
+      onChange={(e) => props.onChange(e)}
+    />
+  );
 }
