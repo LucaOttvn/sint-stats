@@ -12,7 +12,8 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    socket = io("http://172.20.10.2:3001");
+    socket = io('https://your-app-name.onrender.com');
+
     console.log(socket);
 
     socket.on("receive_message", (msg: any) => {
