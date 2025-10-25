@@ -20,7 +20,7 @@ export default function CommandPrompt() {
       if (!route) continue;
       router.prefetch(route);
     }
-  }, []);
+  }, [router]);
 
   // on enter trigger the command
   const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {

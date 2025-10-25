@@ -1,5 +1,4 @@
-import {fullLore} from "@/utils/lore";
-import Link from "next/link";
+import { fullLore } from "@/utils/lore";
 import "./style.scss";
 import Folder from "@/components/folder/Folder";
 

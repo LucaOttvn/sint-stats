@@ -18,7 +18,7 @@ export default function InputField(props: InputFieldProps) {
       className="mainInput"
       placeholder={props.placeHolder || ""}
       onKeyDown={(e) => {
-        props.onKeyDown ? props.onKeyDown(e) : null
+        if (props.onKeyDown) props.onKeyDown(e)
       }}
       onChange={(e) => props.onChange(e)}
     />

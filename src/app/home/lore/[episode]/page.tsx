@@ -1,6 +1,5 @@
-import {fullLore} from "@/utils/lore";
+import { fullLore } from "@/utils/lore";
 import "../style.scss";
-import Image from "next/image";
 
 interface SeasonProps {
   params: Promise<{episode: string}>;
