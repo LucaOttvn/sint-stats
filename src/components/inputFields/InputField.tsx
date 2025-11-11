@@ -1,5 +1,4 @@
 import React, {Ref} from "react";
-import "./style.scss";
 
 interface InputFieldProps {
   placeHolder?: string;
