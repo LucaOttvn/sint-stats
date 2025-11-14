@@ -1,22 +1,21 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+// src/app/api/server/route.ts
+import { NextRequest, NextResponse } from 'next/server';
 
 let messages: string[] = [];
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    const { message } = req.body;
-    if (typeof message === 'string' && message.trim() !== '') {
-      messages.push(message);
-      // Limit messages stored for simplicity
-      if (messages.length > 50) messages.shift();
-      res.status(201).json({ status: 'Message received' });
-    } else {
-      res.status(400).json({ error: 'Invalid message' });
-    }
-  } else if (req.method === 'GET') {
-    // Return all messages for polling client
-    res.status(200).json(messages);
-  } else {
-    res.status(405).json({ error: 'Method not allowed' });
+export async function POST(req: NextRequest) {
+  const body = await req.json().catch(() => null);
+  const message = body?.message;
+
+  if (typeof message === 'string' && message.trim() !== '') {
+    messages.push(message);
+    if (messages.length > 50) messages.shift();
+    return NextResponse.json({ status: 'Message received' }, { status: 201 });
   }
+
+  return NextResponse.json({ error: 'Invalid message' }, { status: 400 });
+}
+
+export async function GET(_req: NextRequest) {
+  return NextResponse.json(messages, { status: 200 });
 }

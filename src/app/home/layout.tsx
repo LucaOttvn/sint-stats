@@ -1,6 +1,6 @@
 import CommandPrompt from "@/components/commandPrompt/CommandPrompt";
-import React from "react";
-import './style.scss'
+import React, { Suspense } from "react";
+import './style.scss';
 
 interface HomeLayoutProps {
   children: React.ReactNode;
@@ -9,11 +9,14 @@ interface HomeLayoutProps {
 /**
  * This is a Layout Component because it contains the command prompt, that has to be shared between the children components.
  */
-export default function HomeLayout(props: HomeLayoutProps) {
+export default async function HomeLayout(props: HomeLayoutProps) {
+
   return (
     <div id="homePageContainer">
       {props.children}
-      <CommandPrompt />
+      <Suspense>
+        <CommandPrompt />
+      </Suspense>
     </div>
   );
 }

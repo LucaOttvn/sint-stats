@@ -2,7 +2,8 @@ import { fullLore } from "@/utils/lore";
 import "./style.scss";
 import Folder from "@/components/folder/Folder";
 
-export default function LoreHandler() {
+export default async function LoreHandler() {
+  
   return (
     <section id="loreContainer">
       {fullLore.seasons.map((season) => (
